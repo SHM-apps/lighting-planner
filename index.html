@@ -48,8 +48,19 @@
   <script>
     function analyze() {
       const fileInput = document.getElementById('file');
-      if (!fileInput.files.length) return alert('ファイルを選択してください');
+      if (!fileInput.files.length) {
+        alert('ファイルを選択してください');
+        return;
+      }
 
+      // 1秒後にダミーの解析結果を表示
       setTimeout(() => {
         document.getElementById('illustration').src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Three_Point_Lighting.svg/640px-Three_Point_Lighting.svg.png";
-        document.getElementById('layout').textContent = "
+        document.getElementById('layout').textContent = "キーライト：左45度前方\nフィルライト：右側から弱め\nバックライト：被写体後方にソフトLED";
+        document.getElementById('notes').textContent = "柔らかい印象を出すため、ディフューザーの使用を推奨します。シネマ風の自然な立体感が出ます。";
+        document.getElementById('result').style.display = 'block';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
