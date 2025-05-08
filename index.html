@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>照明の組み方アプリ（デモ）</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .result {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    img {
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>照明の組み方アプリ（デモ）</h1>
+  <label for="file">画像/動画を選択：</label>
+  <input type="file" id="file" accept="image/*,video/*">
+  <button onclick="analyze()">解析して照明を提案</button>
+
+  <div id="result" class="result" style="display:none;">
+    <h2>照明プラン</h2>
+    <img id="illustration" alt="照明セットアップ図">
+    <p><strong>照明の配置：</strong><br><span id="layout"></span></p>
+    <p><strong>アドバイス：</strong><br><span id="notes"></span></p>
+  </div>
+
+  <script>
+    function analyze() {
+      const fileInput = document.getElementById('file');
+      if (!fileInput.files.length) return alert('ファイルを選択してください');
+
+      setTimeout(() => {
+        document.getElementById('illustration').src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Three_Point_Lighting.svg/640px-Three_Point_Lighting.svg.png";
+        document.getElementById('layout').textContent = "
